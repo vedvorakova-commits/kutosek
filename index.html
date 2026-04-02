@@ -99,9 +99,16 @@ function createWord() {
     word.remove();
   }, 8000);
 }
+function start() {
+  setInterval(createWord, 3000);
+}
 
-setInterval(createWord, 3000);
-</script>
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(start);
+} else {
+  start();
+}
+  </script>
 
 </body>
 </html>
