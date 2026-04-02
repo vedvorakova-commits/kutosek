@@ -76,12 +76,14 @@ const messages = [
   "můžu se na tebe se vším spolehnout"
 ];
 
+let currentIndex = 0;
+  
 function createWord() {
   const word = document.createElement("div");
   word.className = "word";
-  word.innerText = messages[Math.floor(Math.random() * messages.length)];
-
-  word.style.animation = "none"; // stop animace dokud nenastavíme pozici
+  word.innerText = messages[currentIndex];
+  currentIndex = (currentIndex + 1) % messages.length;
+  word.style.animation = "none"; 
   word.style.fontSize = (12 + Math.random() * 10) + "px";
 
   document.body.appendChild(word);
@@ -92,7 +94,7 @@ function createWord() {
 
   word.style.left = Math.random() * (safeLeft - padding) + padding + "px";
 
-  // teď zapneme animaci
+  
   word.style.animation = `float ${12 + Math.random() * 10}s linear infinite`;
 
   setTimeout(() => {
