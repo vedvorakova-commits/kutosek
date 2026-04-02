@@ -87,9 +87,8 @@ function createWord() {
   document.body.appendChild(word);
 
   requestAnimationFrame(() => {
-    const padding = 40;
-    const maxLeft = window.innerWidth - word.offsetWidth - padding;
-    word.style.left = Math.random() * Math.max(0, maxLeft) + "px";
+  const padding = 20;
+  word.style.right = Math.random() * (window.innerWidth - padding) + "px";
   });
 
   setTimeout(() => {
