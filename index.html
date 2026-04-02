@@ -75,11 +75,27 @@ body {
   50%  { transform: translateY(8px); }
   100% { transform: translateY(0px); }
 }
+.title {
+  position: fixed;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  z-index: 9;
+  pointer-events: none;
+
+  text-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
 </style>
 </head>
 
 <body>
-  
+<div class="title">
+  30 důvodů, proč tě miluju
+</div>  
 <div class="hearts">
   <span>❤️</span>
   <span>❤️</span>
