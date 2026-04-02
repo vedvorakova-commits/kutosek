@@ -10,7 +10,7 @@
 body {
   margin: 0;
   overflow: hidden;
-  background: #0a1a3a; /* tmavě modrá */
+  background: #0a1a3a;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -18,25 +18,21 @@ body {
   position: absolute;
   color: #ffffff;
   font-size: 14px;
+  white-space: nowrap;
   opacity: 0;
   animation: float linear infinite;
-
-  /* jemný glow */
   text-shadow: 0 0 6px rgba(255,255,255,0.7);
 }
 
 @keyframes float {
-  0% {
+  from {
     transform: translateY(100vh);
     opacity: 0;
   }
   20% {
     opacity: 1;
   }
-  80% {
-    opacity: 1;
-  }
-  100% {
+  to {
     transform: translateY(-10vh);
     opacity: 0;
   }
@@ -84,18 +80,21 @@ function createWord() {
   const word = document.createElement("div");
   word.className = "word";
   word.innerText = messages[Math.floor(Math.random() * messages.length)];
-  word.style.left = (10 + Math.random() * 80) + "vw";
-  word.style.animationDuration = (8 + Math.random() * 10) + "s";
-  word.style.fontSize = (14 + Math.random() * 26) + "px";
+
+  const maxLeft = window.innerWidth - 250;
+  word.style.left = Math.random() * maxLeft + "px";
+
+  word.style.animationDuration = (8 + Math.random() * 8) + "s";
+  word.style.fontSize = (12 + Math.random() * 10) + "px";
 
   document.body.appendChild(word);
 
   setTimeout(() => {
     word.remove();
-  }, 10000);
+  }, 12000);
 }
 
-setInterval(createWord, 900);
+setInterval(createWord, 1200);
 </script>
 
 </body>
