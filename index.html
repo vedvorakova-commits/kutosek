@@ -81,14 +81,16 @@ function createWord() {
   word.className = "word";
   word.innerText = messages[Math.floor(Math.random() * messages.length)];
 
-  const padding = 40;
-  const maxLeft = window.innerWidth - word.offsetWidth - padding;
-  word.style.left = Math.random() * maxLeft + "px";
-
   word.style.animationDuration = (12 + Math.random() * 10) + "s";
   word.style.fontSize = (12 + Math.random() * 10) + "px";
 
   document.body.appendChild(word);
+
+  requestAnimationFrame(() => {
+    const padding = 40;
+    const maxLeft = window.innerWidth - word.offsetWidth - padding;
+    word.style.left = Math.random() * Math.max(0, maxLeft) + "px";
+  });
 
   setTimeout(() => {
     word.remove();
