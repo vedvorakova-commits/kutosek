@@ -81,7 +81,8 @@ function createWord() {
   word.className = "word";
   word.innerText = messages[Math.floor(Math.random() * messages.length)];
 
-  const maxLeft = window.innerWidth - 250;
+  const padding = 40;
+  const maxLeft = window.innerWidth - word.offsetWidth - padding;
   word.style.left = Math.random() * maxLeft + "px";
 
   word.style.animationDuration = (8 + Math.random() * 8) + "s";
@@ -91,10 +92,10 @@ function createWord() {
 
   setTimeout(() => {
     word.remove();
-  }, 12000);
+  }, 8000);
 }
 
-setInterval(createWord, 1200);
+setInterval(createWord, 2200);
 </script>
 
 </body>
