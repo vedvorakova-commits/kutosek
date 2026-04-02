@@ -10,34 +10,26 @@
 body {
   margin: 0;
   overflow: hidden;
-  background: radial-gradient(circle at 30% 30%, #1a2a6c, #0b0f2f, #000814);
+  background: linear-gradient(180deg, #020617, #0a1a3a, #020617);
   font-family: 'Poppins', sans-serif;
 }
 
-/* jemné hvězdičky */
+/* odstraníme světlé hvězdičky úplně */
 body::before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background-image: radial-gradient(white 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: 0.08;
-  animation: moveBg 80s linear infinite;
-}
-
-@keyframes moveBg {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-200px, -200px); }
+  display: none;
 }
 
 .word {
   position: absolute;
-  color: #e0e6ff;
+  color: rgba(255, 255, 255, 0.85);
   font-size: 18px;
   opacity: 0;
   animation: float linear infinite;
-  text-shadow: 0 0 12px rgba(173, 216, 255, 0.8);
+
+  /* jemný glow (ne přepálený) */
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.4),
+    0 0 12px rgba(180,200,255,0.3);
 }
 
 @keyframes float {
@@ -46,10 +38,10 @@ body::before {
     opacity: 0;
   }
   20% {
-    opacity: 1;
+    opacity: 0.8;
   }
   80% {
-    opacity: 1;
+    opacity: 0.8;
   }
   100% {
     transform: translateY(-10vh);
