@@ -40,17 +40,30 @@ body {
 }
 .hearts {
   position: fixed;
-  top: 24px;
+  top: 30px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Inter', sans-serif;
-  font-size: 28px;
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
   color: #ff5c7a;
-  letter-spacing: 10px;
+  letter-spacing: 16px;
   z-index: 10;
   pointer-events: none;
 
-  text-shadow: 0 0 10px rgba(255, 92, 122, 0.6);
+  text-shadow: 0 0 12px rgba(255, 92, 122, 0.6);
+
+  animation: wave 3s ease-in-out infinite;
+}
+@keyframes wave {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
 }
 </style>
 </head>
