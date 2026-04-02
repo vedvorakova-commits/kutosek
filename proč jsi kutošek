@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Proč jsi kutošek ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #0b0b0f;
+  font-family: Arial, sans-serif;
+}
+
+.word {
+  position: absolute;
+  color: white;
+  font-size: 18px;
+  opacity: 0.8;
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-10vh);
+    opacity: 1;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<script>
+const messages = [
+  "miluju tě",
+  "jsi můj domov",
+  "s tebou je všechno lepší",
+  "vybral bys si tě znovu",
+  "jsi moje jistota",
+  "jsi moje radost",
+  "děkuju že tě mám",
+  "jsi můj safe place",
+  "s tebou jsem víc já",
+  "jsi moje všechno"
+];
+
+function createWord() {
+  const word = document.createElement("div");
+  word.className = "word";
+  word.innerText = messages[Math.floor(Math.random() * messages.length)];
+
+  word.style.left = Math.random() * 100 + "vw";
+  word.style.animationDuration = (5 + Math.random() * 10) + "s";
+  word.style.fontSize = (14 + Math.random() * 20) + "px";
+
+  document.body.appendChild(word);
+
+  setTimeout(() => {
+    word.remove();
+  }, 15000);
+}
+
+setInterval(createWord, 500);
+</script>
+
+</body>
+</html>
