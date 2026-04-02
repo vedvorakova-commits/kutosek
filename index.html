@@ -84,8 +84,7 @@ function createWord() {
   const word = document.createElement("div");
   word.className = "word";
   word.innerText = messages[Math.floor(Math.random() * messages.length)];
-
-  word.style.left = Math.random() * 100 + "vw";
+  word.style.left = (10 + Math.random() * 80) + "vw";
   word.style.animationDuration = (8 + Math.random() * 10) + "s";
   word.style.fontSize = (14 + Math.random() * 26) + "px";
 
