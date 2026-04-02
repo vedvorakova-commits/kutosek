@@ -4,32 +4,25 @@
 <meta charset="UTF-8">
 <title>Proč jsi kutošek ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
   overflow: hidden;
-  background: linear-gradient(180deg, #020617, #0a1a3a, #020617);
-  font-family: 'Poppins', sans-serif;
-}
-
-/* odstraníme světlé hvězdičky úplně */
-body::before {
-  display: none;
+  background: #0a1a3a; /* tmavě modrá */
+  font-family: 'Press Start 2P', cursive;
 }
 
 .word {
   position: absolute;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 18px;
+  color: #ffffff;
+  font-size: 14px;
   opacity: 0;
   animation: float linear infinite;
 
-  /* jemný glow (ne přepálený) */
-  text-shadow:
-    0 0 6px rgba(255,255,255,0.4),
-    0 0 12px rgba(180,200,255,0.3);
+  /* jemný glow */
+  text-shadow: 0 0 6px rgba(255,255,255,0.7);
 }
 
 @keyframes float {
@@ -38,10 +31,10 @@ body::before {
     opacity: 0;
   }
   20% {
-    opacity: 0.8;
+    opacity: 1;
   }
   80% {
-    opacity: 0.8;
+    opacity: 1;
   }
   100% {
     transform: translateY(-10vh);
