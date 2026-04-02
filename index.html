@@ -38,6 +38,7 @@ body {
     opacity: 0;
   }
 }
+  
 .hearts {
   position: fixed;
   top: 20px;
@@ -47,6 +48,7 @@ body {
   pointer-events: none;
   z-index: 10;
 }
+  
 .hearts span {
   position: absolute;
   font-size: 64px;
@@ -54,6 +56,7 @@ body {
   text-shadow: 0 0 12px rgba(255, 92, 122, 0.6);
   animation: floatHeart 4s ease-in-out infinite;
 }
+  
 .hearts span:nth-child(1) { left: 5%; top: 10px; animation-delay: 0s; }
 .hearts span:nth-child(2) { left: 15%; top: 40px; animation-delay: 1s; }
 .hearts span:nth-child(3) { left: 25%; top: 5px; animation-delay: 2s; }
@@ -70,11 +73,12 @@ body {
 .hearts span:nth-child(14){ left: 90%; top: 50px; animation-delay: 2.7s; }
 .hearts span:nth-child(15){ left: 60%; top: 20px; animation-delay: 0.9s; }
 
- @keyframes floatHeart {
+@keyframes floatHeart {
   0%   { transform: translateY(0px); }
   50%  { transform: translateY(8px); }
   100% { transform: translateY(0px); }
 }
+  
 .title {
   position: fixed;
   top: 170px;
@@ -86,7 +90,6 @@ body {
   letter-spacing: 1px;
   z-index: 9;
   pointer-events: none;
-
   text-shadow: 0 0 8px rgba(255,255,255,0.4);
 }
 </style>
@@ -95,7 +98,8 @@ body {
 <body>
 <div class="title">
   30 důvodů, proč tě miluju
-</div>  
+</div> 
+  
 <div class="hearts">
   <span>❤️</span>
   <span>❤️</span>
@@ -158,20 +162,17 @@ function createWord() {
   word.style.animation = "none"; 
   word.style.fontSize = (18 + Math.random() * 12) + "px";
   document.body.appendChild(word);
-
   const padding = 20;
   const maxLeft = window.innerWidth - word.offsetWidth - padding;
   const safeLeft = Math.max(padding, maxLeft);
-
   word.style.left = Math.random() * (safeLeft - padding) + padding + "px";
-
-  
   word.style.animation = `float ${12 + Math.random() * 10}s linear infinite`;
 
   setTimeout(() => {
     word.remove();
   }, 8000);
 }
+  
 function start() {
   setInterval(createWord, 3000);
 }
