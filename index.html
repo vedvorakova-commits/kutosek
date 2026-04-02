@@ -85,7 +85,7 @@ function createWord() {
   const maxLeft = window.innerWidth - word.offsetWidth - padding;
   word.style.left = Math.random() * maxLeft + "px";
 
-  word.style.animationDuration = (8 + Math.random() * 8) + "s";
+  word.style.animationDuration = (12 + Math.random() * 10) + "s";
   word.style.fontSize = (12 + Math.random() * 10) + "px";
 
   document.body.appendChild(word);
@@ -95,7 +95,7 @@ function createWord() {
   }, 8000);
 }
 
-setInterval(createWord, 2200);
+setInterval(createWord, 3000);
 </script>
 
 </body>
