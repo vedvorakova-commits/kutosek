@@ -37,16 +37,18 @@ body {
 
 <script>
 const messages = [
-  "miluju tě",
-  "jsi můj domov",
-  "s tebou je všechno lepší",
-  "vybral bys si tě znovu",
-  "jsi moje jistota",
-  "jsi moje radost",
-  "děkuju že tě mám",
-  "jsi můj safe place",
-  "s tebou jsem víc já",
-  "jsi moje všechno"
+  "jsi hot",
+  "jsi smarťoš",
+  "zpíváš nejlepší písničky o našem životě",
+  "jsi best lil rapík",
+  "vonínuješ",
+  "učíš mě házet spinybíns v 10",
+  "můžu se ti se vším svěřit",
+  "pomáháš všem okolo sebe",
+  "jsi pozornej a empatickej",
+  "máš dobré srdíčko"
+  "jsi milující přítel"
+  "můžu se na tebe se vším spolehnout"
 ];
 
 function createWord() {
