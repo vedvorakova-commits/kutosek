@@ -177,7 +177,13 @@ function createWord() {
   const word = document.createElement("div");
   word.className = "word";
   word.innerText = messages[currentIndex];
-  currentIndex = (currentIndex + 1) % messages.length;
+  currentIndex++;
+
+if (currentIndex >= messages.length) {
+  clearInterval(interval);
+
+  setTimeout(showFinalMessage, 4000); // nech chvíli doznít poslední věty
+}
   word.style.animation = "none"; 
   word.style.fontSize = (18 + Math.random() * 12) + "px";
   document.body.appendChild(word);
@@ -187,10 +193,15 @@ function createWord() {
   word.style.left = Math.random() * (safeLeft - padding) + padding + "px";
   word.style.animation = `float ${12 + Math.random() * 10}s linear infinite`;
 
+  setTimeout(() => {
+    word.remove();
+  }, 8000);
+}
+
 function showFinalMessage() {
   const final = document.createElement("div");
   final.className = "final-message";
-  final.innerText = "všechno nejlepší, lásko ❤️";
+  final.innerText = "všechno nejlepší, kutošku ❤️";
 
   document.body.appendChild(final);
 
@@ -199,13 +210,8 @@ function showFinalMessage() {
   }, 100);
 }
   
-  setTimeout(() => {
-    word.remove();
-  }, 8000);
-}
-  
 function start() {
-  setInterval(createWord, 3000);
+  const interval = setInterval(createWord, 3000);
 }
 
 if (document.fonts && document.fonts.ready) {
