@@ -179,10 +179,12 @@ function createWord() {
   word.innerText = messages[currentIndex];
   currentIndex++;
 
-if (currentIndex >= messages.length) {
-  clearInterval(interval);
+  if (currentIndex >= messages.length) {
+  currentIndex = 0;
+}
 
-  setTimeout(showFinalMessage, 4000); // nech chvíli doznít poslední věty
+if (currentIndex === messages.length) {
+  setTimeout(showFinalMessage, 4000);
 }
   word.style.animation = "none"; 
   word.style.fontSize = (18 + Math.random() * 12) + "px";
@@ -210,8 +212,10 @@ function showFinalMessage() {
   }, 100);
 }
   
+let interval;
+
 function start() {
-  const interval = setInterval(createWord, 3000);
+  interval = setInterval(createWord, 3000);
 }
 
 if (document.fonts && document.fonts.ready) {
@@ -219,7 +223,6 @@ if (document.fonts && document.fonts.ready) {
 } else {
   start();
 }
- setTimeout(showFinalMessage, 20000);
   </script>
 
 </body>
