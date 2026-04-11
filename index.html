@@ -92,25 +92,6 @@ body {
   pointer-events: none;
   text-shadow: 0 0 8px rgba(255,255,255,0.4);
 }
-.final-message {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 6vw, 72px);
-  color: #ffffff;
-  text-align: center;
-  opacity: 0;
-  z-index: 20;
-  pointer-events: none;
-
-  text-shadow:
-    0 0 10px rgba(255,255,255,0.6),
-    0 0 20px rgba(255,255,255,0.4);
-
-  transition: opacity 2s ease;
-}
 </style>
 </head>
 
@@ -138,11 +119,10 @@ body {
 </div>
   
 <script>
-<script>
 const messages = [
   "jsi šíleně hot",
-  "jsi největší smarťoš",
-  "zpíváš fun písničky o našem životě",
+  "jsi smarťoš",
+  "zpíváš nejlepší písničky o našem životě",
   "jsi best lil rapík",
   "vonínuješ",
   "učíš mě házet spinybíns v 10",
@@ -152,19 +132,19 @@ const messages = [
   "máš dobré srdíčko",
   "jsi milující přítel",
   "jsi na mě nejvíc hodnín",
-  "jsi trpělivej, když mi nejdou videohry",
-  "chráníš mě, když spinybínsuju, abych si mohla pořádně odpočinout",
+  "jsi trpělivej když mi nejdou videohry",
+  "chráníš mě když spinybínsuju",
   "krásně se staráš o to, abys zrealizoval nejhezčí domeček na světě",
-  "jsi nejšikovnější programátor a king droníků",
-  "máš best dark humor a jsi content king",
-  "seš roztomilej, když se rozpovídáš o tom, jak miluješ řízky",
-  "tvůj úsměv je ta nejhezčí věc na světě",
-  "můžeme spolu vést bizarní filozofický debaty",
+  "jsi nejšikovnější programátor",
+  "máš best dark humor a jsi velmi funny",
+  "seš roztomilej když mluvíš o jídle",
+  "nejkrásněji se usmíváš",
+  "můžeme spolu vést filosofický debaty",
   "chodíš se mnou na procházky, i když nerad chodíš ven",
   "jsi čestnej, věrnej a férovej člověk",
   "v každém vidíš to nejlepší a učíš to i mě",
   "ukázal jsi mi spoustu cool filmíků a serošků",
-  "můžu s tebou být sama sebou, být weird a i tak mě máš rád",
+  "můžu s tebou být sama sebou a být just a silly girl",
   "vždycky mě podržíš, když mám krizi nebo jsem smutná",
   "podporuješ mě v mých snech, koníčcích a malých radostech",
   "jsi rozhodnej a silnej v tom co chceš a co děláš",
@@ -173,53 +153,26 @@ const messages = [
 ];
 
 let currentIndex = 0;
-let finalShown = false;
-
+  
 function createWord() {
   const word = document.createElement("div");
   word.className = "word";
   word.innerText = messages[currentIndex];
-
-  currentIndex++;
-
-  if (currentIndex === messages.length && !finalShown) {
-    finalShown = true;
-    setTimeout(showFinalMessage, 4000);
-  }
-
-  if (currentIndex >= messages.length) {
-    currentIndex = 0;
-  }
-
-  word.style.animation = "none";
+  currentIndex = (currentIndex + 1) % messages.length;
+  word.style.animation = "none"; 
   word.style.fontSize = (18 + Math.random() * 12) + "px";
-
   document.body.appendChild(word);
-
   const padding = 20;
   const maxLeft = window.innerWidth - word.offsetWidth - padding;
   const safeLeft = Math.max(padding, maxLeft);
   word.style.left = Math.random() * (safeLeft - padding) + padding + "px";
-
   word.style.animation = `float ${12 + Math.random() * 10}s linear infinite`;
 
   setTimeout(() => {
     word.remove();
   }, 8000);
 }
-
-function showFinalMessage() {
-  const final = document.createElement("div");
-  final.className = "final-message";
-  final.innerText = "všechno nejlepší, kutošku ❤️";
-
-  document.body.appendChild(final);
-
-  setTimeout(() => {
-    final.style.opacity = "1";
-  }, 100);
-}
-
+  
 function start() {
   setInterval(createWord, 3000);
 }
@@ -229,8 +182,7 @@ if (document.fonts && document.fonts.ready) {
 } else {
   start();
 }
-</script>
- 
+  </script>
 
 </body>
 </html>
