@@ -172,20 +172,22 @@ const messages = [
 ];
 
 let currentIndex = 0;
+let finalShown = false;
   
 function createWord() {
   const word = document.createElement("div");
   word.className = "word";
   word.innerText = messages[currentIndex];
+ 
   currentIndex++;
+if (currentIndex === messages.length && !finalShown) {
+  finalShown = true;
+setTimeout(showFinalMessage, 4000);
 
-  if (currentIndex >= messages.length) {
+if (currentIndex >= messages.length) {
   currentIndex = 0;
 }
-
-if (currentIndex === messages.length) {
-  setTimeout(showFinalMessage, 4000);
-}
+  
   word.style.animation = "none"; 
   word.style.fontSize = (18 + Math.random() * 12) + "px";
   document.body.appendChild(word);
