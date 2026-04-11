@@ -92,6 +92,25 @@ body {
   pointer-events: none;
   text-shadow: 0 0 8px rgba(255,255,255,0.4);
 }
+.final-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 6vw, 72px);
+  color: #ffffff;
+  text-align: center;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.6),
+    0 0 20px rgba(255,255,255,0.4);
+
+  transition: opacity 2s ease;
+}
 </style>
 </head>
 
@@ -168,6 +187,18 @@ function createWord() {
   word.style.left = Math.random() * (safeLeft - padding) + padding + "px";
   word.style.animation = `float ${12 + Math.random() * 10}s linear infinite`;
 
+function showFinalMessage() {
+  const final = document.createElement("div");
+  final.className = "final-message";
+  final.innerText = "všechno nejlepší, lásko ❤️";
+
+  document.body.appendChild(final);
+
+  setTimeout(() => {
+    final.style.opacity = "1";
+  }, 100);
+}
+  
   setTimeout(() => {
     word.remove();
   }, 8000);
@@ -182,6 +213,7 @@ if (document.fonts && document.fonts.ready) {
 } else {
   start();
 }
+ setTimeout(showFinalMessage, 20000);
   </script>
 
 </body>
